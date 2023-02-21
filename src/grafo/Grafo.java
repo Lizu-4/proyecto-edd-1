@@ -46,10 +46,10 @@ public class Grafo {
         return (i < getNumVerts()) ? i : -1;
     }
 
-    public void newVertice(Vertice vertice) {
-        boolean esta = searchVertice(vertice.getName()) >= 0;
+    public void newVertice(String nombre, Lista productos) {
+        boolean esta = searchVertice(nombre) >= 0;
         if (!esta) {
-            Vertice v = new Vertice(vertice.getName(), vertice.getProductos());
+            Vertice v = new Vertice(nombre, productos);
             v.setNumVertice(getNumVerts());
             verts[numVerts++] = v;
 
@@ -92,7 +92,7 @@ public class Grafo {
         }
     }
     
-    public Lista amplitud (Grafo g,String name) {
+    public Lista BFS (Grafo g,String name) {
         Lista listarecorrida = new Lista();
         int password = 200;
         int[] visitados;
