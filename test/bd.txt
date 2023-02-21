@@ -1,0 +1,6 @@
+Almacenes;
+Almacen A:
+Pantalla,3
+RAM,2
+Almacen B:
+Rutas;

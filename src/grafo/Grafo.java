@@ -46,10 +46,10 @@ public class Grafo {
         return (i < getNumVerts()) ? i : -1;
     }
 
-    public void newVertice(String nombre, Lista productos) {
-        boolean esta = searchVertice(nombre) >= 0;
+    public void newVertice(Vertice vertice) {
+        boolean esta = searchVertice(vertice.getName()) >= 0;
         if (!esta) {
-            Vertice v = new Vertice(nombre, productos);
+            Vertice v = new Vertice(vertice.getName(), vertice.getProductos());
             v.setNumVertice(getNumVerts());
             verts[numVerts++] = v;
 
