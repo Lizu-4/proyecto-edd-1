@@ -45,6 +45,24 @@ public class Lista<T> {
     public void setSize(int size) {
         this.size = size;
     }
-
-   
+    
+    
+    public boolean isEmpty(){
+        return head == null;
+    }
+    
+    public Nodo insertFinal(Object data){
+        Nodo node = new Nodo(data);
+        if(isEmpty()){
+            setHead(node);
+        }else{
+            Nodo pointer = getHead();
+            while(pointer.getNext() != null){
+                pointer = pointer.getNext();
+            }
+            pointer.setNext(node);
+        }
+        size++;
+        return node;
+    }
 }
