@@ -1,5 +1,4 @@
 package grafo;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
@@ -24,15 +23,16 @@ public class Main {
         Vertice vertice2 = new Vertice("B");
         Producto producto2 = new Producto("pantalla",3);
         vertice2.getProductos().insertFinal(producto2);
+        Producto producto3 = new Producto("pan",3);
+        vertice2.getProductos().insertFinal(producto3);
         matriz.newVertice(vertice2.getName(),vertice2.getProductos());
         
         Vertice vertice3 = new Vertice("C");
-        Producto producto3 = new Producto("pan",3);
-        vertice3.getProductos().insertFinal(producto3);
         matriz.newVertice(vertice3.getName(),vertice3.getProductos());
         
+        Lista<Vertice> listafinal =matriz.BFS(matriz, "A");
+        System.out.println(listafinal.printProductosBFS());
         
-        matriz.BFS(matriz, "A");
         
         
     }
