@@ -92,8 +92,9 @@ public class Grafo {
         }
     }
     
-    public void BFS (Grafo g,String name) {
+    public Lista BFS (Grafo g,String name) {
         int password = 200;
+        Lista listafinal = new Lista();
         int[] visitados;
         int verticePartida = g.searchVertice(name);
         if (verticePartida < 0) {
@@ -109,12 +110,8 @@ public class Grafo {
             while (!cola.isEmpty()) {
                 Integer cp = (Integer) (cola.despachar()).getData();
                 int p = cp;
-                System.out.println("Almacen " + g.verts[p].getName());
-                Nodo<Producto> aux = g.verts[p].getProductos().getHead();
-                for (int i = 0; i < g.verts[p].getProductos().getSize(); i++) {
-                    System.out.println("Producto: " + aux.getData().getNombre() + "Cantidad: " + aux.getData().getCantidad());
-                    aux = aux.getNext();;
-                }
+                Vertice vertice = new Vertice(g.verts[p].getName(),g.verts[p].getProductos());
+                listafinal.insertFinal(vertice);
                 for (int u = 0; u < g.getNumVerts(); u++) {
                     if (visitados[u] == password && g.verts[p] != null) {
                         visitados[u] = visitados[p] + 1;
@@ -123,6 +120,7 @@ public class Grafo {
                 }
             }
         }
+        return listafinal;
     }
     
     /**
