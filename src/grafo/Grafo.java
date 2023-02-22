@@ -92,14 +92,12 @@ public class Grafo {
         }
     }
     
-    public Lista BFS (Grafo g,String name) {
-        Lista listarecorrida = new Lista();
+    public void BFS (Grafo g,String name) {
         int password = 200;
         int[] visitados;
         int verticePartida = g.searchVertice(name);
         if (verticePartida < 0) {
             JOptionPane.showMessageDialog(null, "El vertice no existe");
-            return null;
         } else {
             Cola cola = new Cola();
             visitados = new int[g.getNumVerts()];
@@ -108,20 +106,22 @@ public class Grafo {
             }
             visitados[verticePartida] = 0;
             cola.encolar(verticePartida);
-
             while (!cola.isEmpty()) {
                 Integer cp = (Integer) (cola.despachar()).getData();
                 int p = cp;
-                Nodo nodo = new Nodo(g.verts[p]);
-                listarecorrida.insertFinal(nodo);
+                System.out.println("Almacen " + g.verts[p].getName());
+                Nodo<Producto> aux = g.verts[p].getProductos().getHead();
+                for (int i = 0; i < g.verts[p].getProductos().getSize(); i++) {
+                    System.out.println("Producto: " + aux.getData().getNombre() + "Cantidad: " + aux.getData().getCantidad());
+                    aux = aux.getNext();;
+                }
                 for (int u = 0; u < g.getNumVerts(); u++) {
-                    if (g.getMatAd()[p][u] != 0 && visitados[u] == password && g.verts[p] != null) {
+                    if (visitados[u] == password && g.verts[p] != null) {
                         visitados[u] = visitados[p] + 1;
                         cola.encolar(u);
                     }
                 }
             }
-            return listarecorrida;
         }
     }
     
