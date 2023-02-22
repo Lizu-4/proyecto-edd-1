@@ -8,7 +8,7 @@ package grafo;
  *
  * @author Kevin
  */
-public class Cola {
+public class Cola<T> {
     private Nodo head, tail;
     private int size;
 
