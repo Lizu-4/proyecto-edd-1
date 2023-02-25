@@ -71,7 +71,7 @@ public class Lista<T> {
             txt += "\n" +"Almacen" + " " + vertice.getData().getName() + ":" + "\n";
             Nodo<Producto> producto = vertice.getData().getProductos().getHead();
             for (int j = 0; j < vertice.getData().getProductos().getSize(); j++) {
-                txt += producto.getData().getNombre() + " : " + producto.getData().getCantidad() + "\n";
+                txt += producto.getData().getNombre() + ":" + producto.getData().getCantidad() + "\n";
                 producto = producto.getNext();
             }
             vertice = vertice.getNext();

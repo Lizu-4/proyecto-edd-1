@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Grafo {
     
     private int numVerts;
-    private static int maxVerts = 20;
+    private static int maxVerts = 10;
     private Vertice [] verts;
     private int[][] matAd;
     
