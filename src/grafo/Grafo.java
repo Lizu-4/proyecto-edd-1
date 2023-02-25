@@ -83,6 +83,20 @@ public class Grafo {
         }
     }
     
+    public int[][] matPeso() {
+    int[][] matPeso = new int[numVerts][numVerts];
+    for (int i = 0; i < numVerts; i++) {
+        for (int j = 0; j < numVerts; j++) {
+            if (matAd[i][j] != 0) {
+                matPeso[i][j] = matAd[i][j];
+            } else {
+                matPeso[i][j] = 99999999;
+            }
+        }
+    }
+    return matPeso;
+}
+    
     public void printMatriz() {
         for (int[] fila : getMatAd()) {
             for (int j = 0; j < fila.length; j++) {
@@ -92,6 +106,7 @@ public class Grafo {
         }
     }
     
+   
     public Lista BFS (Grafo g,String name) {
         int password = 200;
         Lista listafinal = new Lista();
@@ -122,6 +137,19 @@ public class Grafo {
         }
         return listafinal;
     }
+    
+    /**
+     * @return the Vertice by index
+     */
+    
+    public Vertice getVerticeByIndex(int index) {
+        if (index >= 0 && index < numVerts) {
+            return verts[index];
+        } else {
+            return null;
+        }
+}
+
     
     /**
      * @return the numVerts

@@ -61,7 +61,7 @@ public class Pedido extends javax.swing.JFrame {
                 menuActionPerformed(evt);
             }
         });
-        jPanel1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 160, 20));
+        jPanel1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 160, 20));
 
         numAlmacen.setBackground(new java.awt.Color(204, 204, 204));
         numAlmacen.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N

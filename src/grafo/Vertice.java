@@ -97,6 +97,8 @@ public class Vertice {
     public String toString(){
         return this.getName() + " (" + this.getNumVertice() + ")";
     }
+    
+    
 
     
     

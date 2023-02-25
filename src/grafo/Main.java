@@ -34,15 +34,22 @@ public class Main {
         Lista<Vertice> listafinal =matriz.BFS(matriz, "A");
         System.out.println(listafinal.printProductosBFS()); */
        
+     
+      
      String path = "test\\almacenes.txt";
         Lector l = new Lector();
         String txt = l.readTxt(path);
         l.loadGrafo(txt);
         Grafo grafo = l.loadGrafo(txt);
-        grafo.printMatriz();
+        //grafo.printMatriz();
         
-        Lista<Vertice> listafinal =grafo.BFS(grafo, "A");
-        System.out.println(listafinal.printProductosBFS());
+        //Lista<Vertice> listafinal =grafo.BFS(grafo, "A");
+       // System.out.println(listafinal.printProductosBFS());
+        Dijkstra dijkstra = new Dijkstra(grafo, grafo.searchVertice("C")); 
+        dijkstra.caminoMinimos(); 
+        dijkstra.printCamino(grafo.searchVertice("E"));
+        
+
     
     }
     
