@@ -3,13 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ventanas;
-
+import grafo.Grafo;
+import grafo.Lista;
+import grafo.Nodo;
 /**
  *
  * @author Liz
  */
 public class ReporteStock extends javax.swing.JFrame {
-
+    Grafo grafo = Global.getGrafo();
     /**
      * Creates new form Inicio
      */
@@ -119,6 +121,8 @@ public class ReporteStock extends javax.swing.JFrame {
 
     private void archivoDefecto5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto5ActionPerformed
         // TODO add your handling code here:
+        Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
+        this.panelBFS.setText(bfs.printProductosBFS());
     }//GEN-LAST:event_archivoDefecto5ActionPerformed
 
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed

@@ -156,7 +156,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_archivoDefectoActionPerformed
 
     private void archivoDefecto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto1ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        ReporteStock stock = new ReporteStock();
     }//GEN-LAST:event_archivoDefecto1ActionPerformed
 
     private void archivoDefecto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto2ActionPerformed
@@ -182,7 +183,7 @@ public class Menu extends javax.swing.JFrame {
     private void archivoDefecto6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto6ActionPerformed
         // TODO add your handling code here:
         Lector lec = new Lector();
-        lec.WriteTxt(matriz);
+        lec.writeTxt(matriz);
     }//GEN-LAST:event_archivoDefecto6ActionPerformed
 
     /**

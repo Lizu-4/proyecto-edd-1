@@ -97,12 +97,11 @@ public class Lector {
         }
     }
 
-    public void WriteTxt(Grafo grafo) {
-        String base_datos = "";
+    public void writeTxt(Grafo grafo) {
         Lista visitados = grafo.BFS(grafo, grafo.getVerts()[0].getName());
-
+        String base_datos = "";
+        
         if (grafo.getNumVerts() != 0) {
-            //acceder matady y escribir txt
             base_datos += "Almacenes;";
             for (int i = 0; i < visitados.getSize(); i++) {
                 base_datos += "\n" + "Almacen" + " " + grafo.getVerts()[i].getName() + ":";
