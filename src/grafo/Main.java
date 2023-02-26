@@ -14,7 +14,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Grafo matriz = new Grafo();
+     /** Grafo matriz = new Grafo();
         Vertice vertice1 = new Vertice("A");
         Producto producto1 = new Producto("ram",3);
         vertice1.getProductos().insertFinal(producto1);
@@ -34,7 +34,25 @@ public class Main {
         System.out.println(listafinal.printProductosBFS());
         
         
+        System.out.println(listafinal.printProductosBFS()); */
+       
+     
+      
+     String path = "test\\almacenes.txt";
+        Lector l = new Lector();
+        String txt = l.readTxt(path);
+        l.loadGrafo(txt);
+        Grafo grafo = l.loadGrafo(txt);
+        //grafo.printMatriz();
         
+        //Lista<Vertice> listafinal =grafo.BFS(grafo, "A");
+       // System.out.println(listafinal.printProductosBFS());
+        Dijkstra dijkstra = new Dijkstra(grafo, grafo.searchVertice("C")); 
+        dijkstra.caminoMinimos(); 
+        dijkstra.printCamino(grafo.searchVertice("E"));
+        
+
+    
     }
     
 }
