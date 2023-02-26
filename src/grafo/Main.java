@@ -29,22 +29,22 @@ public class Main {
 //        
 //        Vertice vertice3 = new Vertice("C");
 //        matriz.newVertice(vertice3.getName(),vertice3.getProductos());
-//        
-//        Lista<Vertice> listafinal =matriz.BFS(matriz, "A");
-//        System.out.println(listafinal.printProductosBFS());
-//        
-       
-       
-     
-      
      String path = "test\\almacenes.txt";
         Lector l = new Lector();
         String txt = l.readTxt(path);
-        System.out.println(txt);
-        System.out.println("hola");
-        Grafo grafo = l.loadGrafo(txt);
-        grafo.printMatriz();
+     Grafo grafo = l.loadGrafo(txt);
+//        
+   //  Lista<Vertice> listafinal =grafo.BFS(grafo, "A");
+    // System.out.println(listafinal.printProductos());
+//        
+       
+
+        Lista<Vertice> lista2 = grafo.DFS(grafo, "A");
+        System.out.println(lista2.printProductos());
+
+
         
+
         //Lista<Vertice> listafinal =grafo.BFS(grafo, "A");
        // System.out.println(listafinal.printProductosBFS());
        // Dijkstra dijkstra = new Dijkstra(grafo, grafo.searchVertice("C")); 

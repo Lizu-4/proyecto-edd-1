@@ -63,8 +63,9 @@ public class Lista<T> {
         size++;
         return node;
     }
-    
-    public String printProductosBFS() {
+   
+
+    public String printProductos() {
         String txt = "";
         Nodo<Vertice> vertice = head;
         for (int i = 0; i < size; i++) {

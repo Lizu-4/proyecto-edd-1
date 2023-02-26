@@ -23,7 +23,7 @@ public class GestionStock extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
-        this.panel.setText(bfs.printProductosBFS());
+        this.panel.setText(bfs.printProductos());
         
     }
 
@@ -176,7 +176,7 @@ public class GestionStock extends javax.swing.JFrame {
                        product.getData().setCantidad(cantidad1 + product.getData().getCantidad());
                        JOptionPane.showMessageDialog(null, "El producto fue modificado con exito");
                        Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
-                       this.panel.setText(bfs.printProductosBFS());
+                       this.panel.setText(bfs.printProductos());
                     }
                     product = product.getNext();
                 }

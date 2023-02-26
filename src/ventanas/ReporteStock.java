@@ -32,7 +32,7 @@ public class ReporteStock extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        panelDfs = new javax.swing.JTextArea();
+        panelDFS = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         panelBFS = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
@@ -49,17 +49,15 @@ public class ReporteStock extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 400));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelDfs.setBackground(new java.awt.Color(204, 204, 204));
-        panelDfs.setColumns(20);
-        panelDfs.setForeground(new java.awt.Color(0, 0, 0));
-        panelDfs.setRows(5);
-        jScrollPane2.setViewportView(panelDfs);
+        panelDFS.setBackground(new java.awt.Color(204, 204, 204));
+        panelDFS.setColumns(20);
+        panelDFS.setRows(5);
+        jScrollPane2.setViewportView(panelDFS);
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 220, 270));
 
         panelBFS.setBackground(new java.awt.Color(204, 204, 204));
         panelBFS.setColumns(20);
-        panelBFS.setForeground(new java.awt.Color(0, 0, 0));
         panelBFS.setRows(5);
         jScrollPane3.setViewportView(panelBFS);
 
@@ -103,7 +101,7 @@ public class ReporteStock extends javax.swing.JFrame {
                 menuActionPerformed(evt);
             }
         });
-        jPanel1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 160, 20));
+        jPanel1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 160, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,11 +120,16 @@ public class ReporteStock extends javax.swing.JFrame {
     private void archivoDefecto5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto5ActionPerformed
         // TODO add your handling code here:
         Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
-        this.panelBFS.setText(bfs.printProductosBFS());
+        this.panelBFS.setText(bfs.printProductos());
+        
+        Lista dfs = grafo.DFS(grafo, grafo.getVerts()[0].getName());
+        this.panelDFS.setText(dfs.printProductos());
     }//GEN-LAST:event_archivoDefecto5ActionPerformed
 
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        Menu menu = new Menu();
     }//GEN-LAST:event_menuActionPerformed
 
     /**
@@ -175,6 +178,6 @@ public class ReporteStock extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton menu;
     private javax.swing.JTextArea panelBFS;
-    private javax.swing.JTextArea panelDfs;
+    private javax.swing.JTextArea panelDFS;
     // End of variables declaration//GEN-END:variables
 }

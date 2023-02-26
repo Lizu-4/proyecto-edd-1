@@ -144,6 +144,8 @@ public class Pedido extends javax.swing.JFrame {
 
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        Menu menu = new Menu();
     }//GEN-LAST:event_menuActionPerformed
 
     private void numAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numAlmacenActionPerformed

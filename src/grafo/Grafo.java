@@ -105,7 +105,37 @@ public class Grafo {
             System.out.println("");
         }
     }
-    
+       
+    public Lista DFS(Grafo grafo, String name) {
+        Lista dfs = new Lista();
+        int v = grafo.searchVertice(name);
+
+        if (v < 0) {
+            JOptionPane.showMessageDialog(null, "El vertice no existe");
+            return dfs;
+        } else {
+            grafo.verts[v].setVisitado(true);
+            int u = grafo.getVerticeNoVisitado(v);
+            if ((u != -1) && (!grafo.verts[u].isVisitado())) {
+                DFS(grafo, (String) grafo.verts[u].getName());
+            }
+
+            for (int i = 0; i < grafo.numVerts; i++) {
+                if (grafo.verts[i].isVisitado()) {
+                    Vertice vertice = new Vertice(grafo.verts[i].getName(),grafo.verts[i].getProductos());
+                    dfs.insertFinal(vertice);
+                }
+
+            }
+            for (int i = 0; i < grafo.numVerts; i++) {
+                if (!grafo.verts[i].isVisitado()) {
+                    DFS(grafo, grafo.verts[i].getName());
+                }
+            }
+            return dfs;
+        }
+    }
+  
     public Lista BFS (Grafo g,String name) {
         int password = 200;
         Lista listafinal = new Lista();
@@ -148,7 +178,15 @@ public class Grafo {
             return null;
         }
 }
-
+    
+        public int getVerticeNoVisitado(int v) {
+        for (int j = 0; j < getNumVerts(); j++) {
+            if ((matAd[v][j] != 0) && (!verts[j].isVisitado())) {
+                return j;
+            }
+        }
+        return -1;
+    }
     
     /**
      * @return the numVerts
