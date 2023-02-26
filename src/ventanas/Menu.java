@@ -162,6 +162,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void archivoDefecto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto2ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        GestionStock stock = new GestionStock();
     }//GEN-LAST:event_archivoDefecto2ActionPerformed
 
     private void archivoDefecto3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto3ActionPerformed

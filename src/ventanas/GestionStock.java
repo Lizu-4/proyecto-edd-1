@@ -4,12 +4,17 @@
  */
 package ventanas;
 
+import grafo.Grafo;
+import grafo.Lista;
+import grafo.Nodo;
+import grafo.Producto;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Liz
  */
 public class GestionStock extends javax.swing.JFrame {
-
+    Grafo grafo = Global.getGrafo();
     /**
      * Creates new form Inicio
      */
@@ -17,6 +22,9 @@ public class GestionStock extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
+        this.panel.setText(bfs.printProductosBFS());
+        
     }
 
     /**
@@ -144,6 +152,8 @@ public class GestionStock extends javax.swing.JFrame {
 
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        Menu menu = new Menu();
     }//GEN-LAST:event_menuActionPerformed
 
     private void numAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numAlmacenActionPerformed
@@ -156,6 +166,26 @@ public class GestionStock extends javax.swing.JFrame {
 
     private void archivoDefecto5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto5ActionPerformed
         // TODO add your handling code here:
+        int cantidad1 = (int) cantidad.getValue();
+        if(this.numAlmacen.getText() != null && this.producto.getText()!= null){
+            int check_almacen = grafo.searchVertice(this.numAlmacen.getText());
+            if(check_almacen != -1){
+                Nodo<Producto> product = grafo.getVerts()[check_almacen].getProductos().getHead();
+                for (int i = 0; i < grafo.getVerts()[check_almacen].getProductos().getSize(); i++) {
+                    if(this.producto.getText().equalsIgnoreCase(product.getData().getNombre())){
+                       product.getData().setCantidad(cantidad1 + product.getData().getCantidad());
+                       JOptionPane.showMessageDialog(null, "El producto fue modificado con exito");
+                       Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
+                       this.panel.setText(bfs.printProductosBFS());
+                    }
+                    product = product.getNext();
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "El almacen que ingresaste no existe");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "El almacen y/o el producto que ingresaste no existe");
+        }
     }//GEN-LAST:event_archivoDefecto5ActionPerformed
 
     /**
