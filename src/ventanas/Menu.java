@@ -37,13 +37,13 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        archivoDefecto = new javax.swing.JButton();
-        archivoDefecto1 = new javax.swing.JButton();
-        archivoDefecto2 = new javax.swing.JButton();
-        archivoDefecto3 = new javax.swing.JButton();
-        archivoDefecto4 = new javax.swing.JButton();
-        archivoDefecto5 = new javax.swing.JButton();
-        archivoDefecto6 = new javax.swing.JButton();
+        realizarPedido = new javax.swing.JButton();
+        verStock = new javax.swing.JButton();
+        gestionarStock = new javax.swing.JButton();
+        nuevoAlmacen = new javax.swing.JButton();
+        nuevaArista = new javax.swing.JButton();
+        verGrafo = new javax.swing.JButton();
+        guardarCambios = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,82 +54,82 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 400));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        archivoDefecto.setBackground(new java.awt.Color(204, 153, 0));
-        archivoDefecto.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
-        archivoDefecto.setForeground(new java.awt.Color(51, 51, 51));
-        archivoDefecto.setText("Realizar Pedido");
-        archivoDefecto.addActionListener(new java.awt.event.ActionListener() {
+        realizarPedido.setBackground(new java.awt.Color(204, 153, 0));
+        realizarPedido.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        realizarPedido.setForeground(new java.awt.Color(51, 51, 51));
+        realizarPedido.setText("Realizar Pedido");
+        realizarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                archivoDefectoActionPerformed(evt);
+                realizarPedidoActionPerformed(evt);
             }
         });
-        jPanel1.add(archivoDefecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 160, 40));
+        jPanel1.add(realizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 160, 40));
 
-        archivoDefecto1.setBackground(new java.awt.Color(204, 153, 0));
-        archivoDefecto1.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
-        archivoDefecto1.setForeground(new java.awt.Color(51, 51, 51));
-        archivoDefecto1.setText("Ver Stock");
-        archivoDefecto1.addActionListener(new java.awt.event.ActionListener() {
+        verStock.setBackground(new java.awt.Color(204, 153, 0));
+        verStock.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        verStock.setForeground(new java.awt.Color(51, 51, 51));
+        verStock.setText("Ver Stock");
+        verStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                archivoDefecto1ActionPerformed(evt);
+                verStockActionPerformed(evt);
             }
         });
-        jPanel1.add(archivoDefecto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 160, 40));
+        jPanel1.add(verStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, 160, 40));
 
-        archivoDefecto2.setBackground(new java.awt.Color(204, 153, 0));
-        archivoDefecto2.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
-        archivoDefecto2.setForeground(new java.awt.Color(51, 51, 51));
-        archivoDefecto2.setText("Gestionar Stock");
-        archivoDefecto2.addActionListener(new java.awt.event.ActionListener() {
+        gestionarStock.setBackground(new java.awt.Color(204, 153, 0));
+        gestionarStock.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        gestionarStock.setForeground(new java.awt.Color(51, 51, 51));
+        gestionarStock.setText("Gestionar Stock");
+        gestionarStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                archivoDefecto2ActionPerformed(evt);
+                gestionarStockActionPerformed(evt);
             }
         });
-        jPanel1.add(archivoDefecto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 160, 40));
+        jPanel1.add(gestionarStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 160, 40));
 
-        archivoDefecto3.setBackground(new java.awt.Color(204, 153, 0));
-        archivoDefecto3.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
-        archivoDefecto3.setForeground(new java.awt.Color(51, 51, 51));
-        archivoDefecto3.setText("Nuevo Almacen");
-        archivoDefecto3.addActionListener(new java.awt.event.ActionListener() {
+        nuevoAlmacen.setBackground(new java.awt.Color(204, 153, 0));
+        nuevoAlmacen.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        nuevoAlmacen.setForeground(new java.awt.Color(51, 51, 51));
+        nuevoAlmacen.setText("Nuevo Almacen");
+        nuevoAlmacen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                archivoDefecto3ActionPerformed(evt);
+                nuevoAlmacenActionPerformed(evt);
             }
         });
-        jPanel1.add(archivoDefecto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 160, 40));
+        jPanel1.add(nuevoAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 160, 40));
 
-        archivoDefecto4.setBackground(new java.awt.Color(204, 153, 0));
-        archivoDefecto4.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
-        archivoDefecto4.setForeground(new java.awt.Color(51, 51, 51));
-        archivoDefecto4.setText("Nueva Arista");
-        archivoDefecto4.addActionListener(new java.awt.event.ActionListener() {
+        nuevaArista.setBackground(new java.awt.Color(204, 153, 0));
+        nuevaArista.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        nuevaArista.setForeground(new java.awt.Color(51, 51, 51));
+        nuevaArista.setText("Nueva Arista");
+        nuevaArista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                archivoDefecto4ActionPerformed(evt);
+                nuevaAristaActionPerformed(evt);
             }
         });
-        jPanel1.add(archivoDefecto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 160, 40));
+        jPanel1.add(nuevaArista, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 160, 40));
 
-        archivoDefecto5.setBackground(new java.awt.Color(204, 153, 0));
-        archivoDefecto5.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
-        archivoDefecto5.setForeground(new java.awt.Color(51, 51, 51));
-        archivoDefecto5.setText("Ver Grafo");
-        archivoDefecto5.addActionListener(new java.awt.event.ActionListener() {
+        verGrafo.setBackground(new java.awt.Color(204, 153, 0));
+        verGrafo.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        verGrafo.setForeground(new java.awt.Color(51, 51, 51));
+        verGrafo.setText("Ver Grafo");
+        verGrafo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                archivoDefecto5ActionPerformed(evt);
+                verGrafoActionPerformed(evt);
             }
         });
-        jPanel1.add(archivoDefecto5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 160, 40));
+        jPanel1.add(verGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 160, 40));
 
-        archivoDefecto6.setBackground(new java.awt.Color(204, 153, 0));
-        archivoDefecto6.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
-        archivoDefecto6.setForeground(new java.awt.Color(51, 51, 51));
-        archivoDefecto6.setText("Guardar Cambios");
-        archivoDefecto6.addActionListener(new java.awt.event.ActionListener() {
+        guardarCambios.setBackground(new java.awt.Color(204, 153, 0));
+        guardarCambios.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        guardarCambios.setForeground(new java.awt.Color(51, 51, 51));
+        guardarCambios.setText("Guardar Cambios");
+        guardarCambios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                archivoDefecto6ActionPerformed(evt);
+                guardarCambiosActionPerformed(evt);
             }
         });
-        jPanel1.add(archivoDefecto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 160, 40));
+        jPanel1.add(guardarCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 160, 40));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Headline R", 1, 24)); // NOI18N
@@ -151,42 +151,42 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void archivoDefectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefectoActionPerformed
+    private void realizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarPedidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_archivoDefectoActionPerformed
+    }//GEN-LAST:event_realizarPedidoActionPerformed
 
-    private void archivoDefecto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto1ActionPerformed
+    private void verStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verStockActionPerformed
         this.setVisible(false);
         ReporteStock stock = new ReporteStock();
-    }//GEN-LAST:event_archivoDefecto1ActionPerformed
+    }//GEN-LAST:event_verStockActionPerformed
 
-    private void archivoDefecto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto2ActionPerformed
+    private void gestionarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gestionarStockActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         GestionStock stock = new GestionStock();
-    }//GEN-LAST:event_archivoDefecto2ActionPerformed
+    }//GEN-LAST:event_gestionarStockActionPerformed
 
-    private void archivoDefecto3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto3ActionPerformed
+    private void nuevoAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoAlmacenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_archivoDefecto3ActionPerformed
+    }//GEN-LAST:event_nuevoAlmacenActionPerformed
 
-    private void archivoDefecto4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto4ActionPerformed
+    private void nuevaAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaAristaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_archivoDefecto4ActionPerformed
+    }//GEN-LAST:event_nuevaAristaActionPerformed
 
-    private void archivoDefecto5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto5ActionPerformed
+    private void verGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verGrafoActionPerformed
         // TODO add your handling code here:
         GraphStream graph = new GraphStream();
         Graph graficar = graph.Graphic(Global.getGrafo());
         System.setProperty("org.graphstream.ui", "swing");
         graficar.display();
-    }//GEN-LAST:event_archivoDefecto5ActionPerformed
+    }//GEN-LAST:event_verGrafoActionPerformed
 
-    private void archivoDefecto6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto6ActionPerformed
+    private void guardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCambiosActionPerformed
         // TODO add your handling code here:
         Lector lec = new Lector();
         lec.writeTxt(matriz);
-    }//GEN-LAST:event_archivoDefecto6ActionPerformed
+    }//GEN-LAST:event_guardarCambiosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,14 +225,14 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton archivoDefecto;
-    private javax.swing.JButton archivoDefecto1;
-    private javax.swing.JButton archivoDefecto2;
-    private javax.swing.JButton archivoDefecto3;
-    private javax.swing.JButton archivoDefecto4;
-    private javax.swing.JButton archivoDefecto5;
-    private javax.swing.JButton archivoDefecto6;
+    private javax.swing.JButton gestionarStock;
+    private javax.swing.JButton guardarCambios;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton nuevaArista;
+    private javax.swing.JButton nuevoAlmacen;
+    private javax.swing.JButton realizarPedido;
+    private javax.swing.JButton verGrafo;
+    private javax.swing.JButton verStock;
     // End of variables declaration//GEN-END:variables
 }

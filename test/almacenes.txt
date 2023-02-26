@@ -5,7 +5,7 @@ RAM,2
 Procesador,1
 Almacen B:
 Pantalla,3
-Grafica,5
+Grafica,7
 Almacen C:
 Placa,7
 Teclado,8

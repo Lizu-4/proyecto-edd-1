@@ -126,7 +126,15 @@ public class Inicio extends javax.swing.JFrame {
 
     private void archivoDefectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefectoActionPerformed
         // TODO add your handling code here:
-        
+        String path = "test\\almacenes.txt";
+        Lector lector = new Lector();
+        String txt = lector.readTxt(path);
+        Grafo grafo = lector.loadGrafo(txt);
+        Global.setGrafo(grafo);
+        if (Global.getGrafo() != null) {
+             this.setVisible(false);
+             Menu menu = new Menu();
+        }
     }//GEN-LAST:event_archivoDefectoActionPerformed
 
     /**

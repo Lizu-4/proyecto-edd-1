@@ -40,15 +40,16 @@ public class Main {
      String path = "test\\almacenes.txt";
         Lector l = new Lector();
         String txt = l.readTxt(path);
-
+        System.out.println(txt);
+        System.out.println("hola");
         Grafo grafo = l.loadGrafo(txt);
-        //grafo.printMatriz();
+        grafo.printMatriz();
         
         //Lista<Vertice> listafinal =grafo.BFS(grafo, "A");
        // System.out.println(listafinal.printProductosBFS());
-        Dijkstra dijkstra = new Dijkstra(grafo, grafo.searchVertice("C")); 
-        dijkstra.caminoMinimos(); 
-        dijkstra.printCamino(grafo.searchVertice("E"));
+       // Dijkstra dijkstra = new Dijkstra(grafo, grafo.searchVertice("C")); 
+       // dijkstra.caminoMinimos(); 
+       // dijkstra.printCamino(grafo.searchVertice("E"));
         
 
     
