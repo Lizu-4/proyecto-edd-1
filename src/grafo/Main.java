@@ -39,7 +39,7 @@ public class Main {
      String path = "test\\almacenes.txt";
         Lector l = new Lector();
         String txt = l.readTxt(path);
-        l.loadGrafo(txt);
+
         Grafo grafo = l.loadGrafo(txt);
         //grafo.printMatriz();
         

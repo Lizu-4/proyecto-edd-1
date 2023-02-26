@@ -3,6 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ventanas;
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.*;
+import grafo.Grafo;
+import grafo.Lector;
+import grafo.Vertice;
+import grafo.Producto;
+import grafo.Vertice;
+import grafo.GraphStream;
 
 /**
  *
@@ -15,6 +23,8 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -121,7 +131,9 @@ public class Menu extends javax.swing.JFrame {
         });
         jPanel1.add(archivoDefecto6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 160, 40));
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Headline R", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("Seleccione una opcion:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
 
@@ -161,6 +173,10 @@ public class Menu extends javax.swing.JFrame {
 
     private void archivoDefecto5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto5ActionPerformed
         // TODO add your handling code here:
+        GraphStream graph = new GraphStream();
+        Graph graficar = graph.Graphic(Global.getGrafo());
+        System.setProperty("org.graphstream.ui", "swing");
+        graficar.display();
     }//GEN-LAST:event_archivoDefecto5ActionPerformed
 
     private void archivoDefecto6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto6ActionPerformed

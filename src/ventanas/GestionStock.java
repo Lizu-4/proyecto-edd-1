@@ -15,6 +15,8 @@ public class GestionStock extends javax.swing.JFrame {
      */
     public GestionStock() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -45,10 +47,12 @@ public class GestionStock extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(40, 40, 40));
+        jPanel1.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.setPreferredSize(new java.awt.Dimension(600, 400));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Headline R", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("Gestionar Stock");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
 
@@ -84,15 +88,18 @@ public class GestionStock extends javax.swing.JFrame {
         jPanel1.add(producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("Almacen");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Stock");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, -1));
         jPanel1.add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setText("Producto");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
@@ -106,6 +113,7 @@ public class GestionStock extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 240, 320));
 
         jLabel8.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Cantidad");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 

@@ -4,6 +4,8 @@
  */
 package ventanas;
 
+import grafo.Grafo;
+import grafo.Lector;
 /**
  *
  * @author Liz
@@ -15,6 +17,8 @@ public class Inicio extends javax.swing.JFrame {
      */
     public Inicio() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -58,13 +62,15 @@ public class Inicio extends javax.swing.JFrame {
                 cargarArchivoActionPerformed(evt);
             }
         });
-        jPanel1.add(cargarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, 30));
+        jPanel1.add(cargarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Headline R", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("(ultimos cambios aqui)");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 200, 30));
 
         jLabel3.setFont(new java.awt.Font("Headline R", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Cargar nuevo txt");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 150, 30));
 
@@ -77,13 +83,15 @@ public class Inicio extends javax.swing.JFrame {
                 archivoDefectoActionPerformed(evt);
             }
         });
-        jPanel1.add(archivoDefecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, 30));
+        jPanel1.add(archivoDefecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("Indique como desea cargar su txt con almacenes");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Headline R", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("Usar archivo por defecto");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, 230, 20));
 
@@ -103,10 +111,22 @@ public class Inicio extends javax.swing.JFrame {
 
     private void cargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarArchivoActionPerformed
         // TODO add your handling code here:
+        Lector lector = new Lector();
+        String txt = lector.openTxt();
+        Grafo grafo = lector.loadGrafo(txt);
+        Global.setGrafo(grafo);
+        if (Global.getGrafo() != null) {
+             this.setVisible(false);
+             Menu menu = new Menu();
+        }
+       
+        
+        
     }//GEN-LAST:event_cargarArchivoActionPerformed
 
     private void archivoDefectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefectoActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_archivoDefectoActionPerformed
 
     /**
