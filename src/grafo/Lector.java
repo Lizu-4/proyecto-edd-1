@@ -96,6 +96,47 @@ public class Lector {
             return null;
         }
     }
+
+    public void WriteTxt(Grafo grafo) {
+        String base_datos = "";
+        Lista visitados = grafo.BFS(grafo, grafo.getVerts()[0].getName());
+
+        if (grafo.getNumVerts() != 0) {
+            //acceder matady y escribir txt
+            base_datos += "Almacenes;";
+            for (int i = 0; i < visitados.getSize(); i++) {
+                base_datos += "\n" + "Almacen" + " " + grafo.getVerts()[i].getName() + ":";
+                Lista productos = grafo.getVerts()[i].getProductos();
+                Nodo<Producto> producto = productos.getHead();
+                if(productos != null){
+                    for (int j = 0; j < productos.getSize(); j++) {
+                        base_datos += "\n" + producto.getData().getNombre() + "," + producto.getData().getCantidad();
+                        producto = producto.getNext();
+                    }
+                }
+
+            }
+            base_datos += "\n" + "Rutas;";
+            int[][] matAdy = grafo.getMatAd();
+            for (int i = 0; i < visitados.getSize(); i++) {
+                for (int j = 0; j < visitados.getSize(); j++) {
+                    if (matAdy[i][j] != 0) {
+                        //escribir la ruta
+                        base_datos += "\n" + grafo.getVerts()[i].getName() + "," + grafo.getVerts()[j].getName() + "," + matAdy[i][j];
+                    }
+                }
+            }
+        }
+        try {  
+            PrintWriter pw = new PrintWriter("test\\almacenes.txt");
+            pw.print(base_datos);
+            pw.close();
+            JOptionPane.showMessageDialog(null, "La informacion se ha guardado con éxito");
+        
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Se ha producido un error al guardar la informacion");
+        }
+    }
         
       
     
