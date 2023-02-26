@@ -171,20 +171,30 @@ public class GestionStock extends javax.swing.JFrame {
             int check_almacen = grafo.searchVertice(this.numAlmacen.getText());
             if(check_almacen != -1){
                 Nodo<Producto> product = grafo.getVerts()[check_almacen].getProductos().getHead();
+                boolean existencia_producto = false;
                 for (int i = 0; i < grafo.getVerts()[check_almacen].getProductos().getSize(); i++) {
                     if(this.producto.getText().equalsIgnoreCase(product.getData().getNombre())){
+                        existencia_producto = true;
                        product.getData().setCantidad(cantidad1 + product.getData().getCantidad());
                        JOptionPane.showMessageDialog(null, "El producto fue modificado con exito");
-                       Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
-                       this.panel.setText(bfs.printProductos());
                     }
-                    product = product.getNext();
+                product = product.getNext();
                 }
+                if(!existencia_producto){
+                    Producto produc = new Producto(this.producto.getText(),cantidad1);
+                    grafo.getVerts()[check_almacen].getProductos().insertFinal(produc);
+                    JOptionPane.showMessageDialog(null, "El producto fue agregado con exito");
+                }
+                Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
+                this.panel.setText(bfs.printProductos());
+                this.producto.setText("");
+                this.numAlmacen.setText("");
+                this.cantidad.setValue(0);
             }else{
                 JOptionPane.showMessageDialog(null, "El almacen que ingresaste no existe");
             }
         }else{
-            JOptionPane.showMessageDialog(null, "El almacen y/o el producto que ingresaste no existe");
+            JOptionPane.showMessageDialog(null, "Asegurate de rellenar todas las casillas");
         }
     }//GEN-LAST:event_archivoDefecto5ActionPerformed
 

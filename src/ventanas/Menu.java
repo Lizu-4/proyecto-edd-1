@@ -11,6 +11,9 @@ import grafo.Vertice;
 import grafo.Producto;
 import grafo.Vertice;
 import grafo.GraphStream;
+import javax.swing.JOptionPane;
+import grafo.Lista;
+
 
 /**
  *
@@ -168,6 +171,40 @@ public class Menu extends javax.swing.JFrame {
 
     private void nuevoAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoAlmacenActionPerformed
         // TODO add your handling code here:
+        String nombre = JOptionPane.showInputDialog("Ingresa el nombre del nuevo almacen");
+        //si el almacen no existe entonces continua
+        if(matriz.searchVertice(nombre) == -1){
+            int aristas;
+            String arista1;
+            int km;
+            try{
+                if(nombre != null){
+                do{
+                    aristas = Integer.parseInt(JOptionPane.showInputDialog("Ingresa el numero de aristas(Minimo 2)"));
+                }while(aristas < 2);
+                    Lista productos = new Lista();
+                    matriz.newVertice(nombre, productos);
+                    JOptionPane.showMessageDialog(null,"Se va a proceder a guardar los caminos");
+                    for (int i = 0; i < aristas; i++) {
+                        do{
+                            arista1 = JOptionPane.showInputDialog("Ingresa el nombre del almacen correspondiente al camino numero: " + (i+1));
+                            System.out.println(matriz.searchVertice(arista1));
+                        }while(matriz.searchVertice(arista1) == -1);
+                        km = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la cantidad de kilometros(solo numeros) entre los almacenes "+ nombre + " y " + arista1));
+                        matriz.newArista(arista1, nombre, km);
+                    }
+                    JOptionPane.showMessageDialog(null,"Su almacen se ha guardado con exito");
+                }
+
+            }catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Error, solo puedes ingresar numeros");
+            }
+            
+            //si el almacen existe termina 
+        }else{
+            JOptionPane.showMessageDialog(null,"El almacen que ingresaste ya existe");
+        }
+
     }//GEN-LAST:event_nuevoAlmacenActionPerformed
 
     private void nuevaAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaAristaActionPerformed
