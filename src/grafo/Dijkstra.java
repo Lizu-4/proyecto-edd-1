@@ -59,16 +59,25 @@ public class Dijkstra {
         return v;
     }
     
-    public void printCamino(int v){
+    public void printCaminoo(int v){
         int anterior = ultimo[v];
         if (v != s){
-            printCamino(anterior); // vuelve al último del último
+            printCaminoo(anterior); // vuelve al último del último
 
             System.out.print(" -> V" + v);
         }else{
           System.out.print("V" + s);
         }
     }
+    
+    public String getCamino(int v) {
+        int anterior = ultimo[v];
+        if (v != s) {
+            return getCamino(anterior) + " -> V" + v;
+        } else {
+            return "V" + s;
+        }
+}
     
     
 

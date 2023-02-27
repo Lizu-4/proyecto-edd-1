@@ -4,12 +4,19 @@
  */
 package ventanas;
 
+import grafo.Dijkstra;
+import grafo.Grafo;
+import grafo.Lista;
+import grafo.Nodo;
+import grafo.Producto;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Liz
  */
 public class Pedido extends javax.swing.JFrame {
-
+    Grafo grafo = Global.getGrafo();
     /**
      * Creates new form Inicio
      */
@@ -17,6 +24,8 @@ public class Pedido extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
+        this.panelStock.setText(bfs.printProductos());
     }
 
     /**
@@ -32,15 +41,17 @@ public class Pedido extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         menu = new javax.swing.JButton();
         numAlmacen = new javax.swing.JTextField();
-        producto = new javax.swing.JTextField();
+        vproducto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        cantidad = new javax.swing.JSpinner();
+        vcantidad = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        panel = new javax.swing.JTextArea();
+        camino = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         enviat = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        panelStock = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -77,15 +88,15 @@ public class Pedido extends javax.swing.JFrame {
         });
         jPanel1.add(numAlmacen, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 30, -1));
 
-        producto.setBackground(new java.awt.Color(204, 204, 204));
-        producto.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
-        producto.setForeground(new java.awt.Color(0, 0, 0));
-        producto.addActionListener(new java.awt.event.ActionListener() {
+        vproducto.setBackground(new java.awt.Color(204, 204, 204));
+        vproducto.setFont(new java.awt.Font("Agency FB", 0, 18)); // NOI18N
+        vproducto.setForeground(new java.awt.Color(0, 0, 0));
+        vproducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productoActionPerformed(evt);
+                vproductoActionPerformed(evt);
             }
         });
-        jPanel1.add(producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 100, -1));
+        jPanel1.add(vproducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
@@ -96,21 +107,21 @@ public class Pedido extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Stock");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, -1, -1));
-        jPanel1.add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
+        jPanel1.add(vcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setText("Producto");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
-        panel.setEditable(false);
-        panel.setBackground(new java.awt.Color(204, 204, 204));
-        panel.setColumns(20);
-        panel.setForeground(new java.awt.Color(0, 0, 0));
-        panel.setRows(5);
-        jScrollPane1.setViewportView(panel);
+        camino.setEditable(false);
+        camino.setBackground(new java.awt.Color(204, 204, 204));
+        camino.setColumns(20);
+        camino.setForeground(new java.awt.Color(0, 0, 0));
+        camino.setRows(5);
+        jScrollPane1.setViewportView(camino);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 240, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 260, 80));
 
         jLabel8.setFont(new java.awt.Font("Headline R", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
@@ -126,7 +137,16 @@ public class Pedido extends javax.swing.JFrame {
                 enviatActionPerformed(evt);
             }
         });
-        jPanel1.add(enviat, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 130, 30));
+        jPanel1.add(enviat, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 130, 30));
+
+        panelStock.setEditable(false);
+        panelStock.setBackground(new java.awt.Color(204, 204, 204));
+        panelStock.setColumns(20);
+        panelStock.setForeground(new java.awt.Color(0, 0, 0));
+        panelStock.setRows(5);
+        jScrollPane2.setViewportView(panelStock);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 240, 320));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,12 +172,61 @@ public class Pedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numAlmacenActionPerformed
 
-    private void productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoActionPerformed
+    private void vproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vproductoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_productoActionPerformed
+    }//GEN-LAST:event_vproductoActionPerformed
 
     private void enviatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviatActionPerformed
         // TODO add your handling code here:
+        String valmacen = numAlmacen.getText();
+        String producto = vproducto.getText().toLowerCase();
+        int cantidad1 = (int) vcantidad.getValue();
+        if(this.numAlmacen.getText() != null && this.vproducto.getText()!= null){
+            int check_almacen = grafo.searchVertice(this.numAlmacen.getText());
+            if(check_almacen != -1){
+                Nodo<Producto> product = grafo.getVerts()[check_almacen].getProductos().getHead();
+                boolean existencia_producto = false;
+                for (int i = 0; i < grafo.getVerts()[check_almacen].getProductos().getSize(); i++) {
+                    if(this.vproducto.getText().equalsIgnoreCase(product.getData().getNombre())){
+                        if (cantidad1 < product.getData().getCantidad()) {
+                            existencia_producto = true;
+                            product.getData().setCantidad(product.getData().getCantidad() - cantidad1 );
+                            JOptionPane.showMessageDialog(null, "El pedido realizado con exito");
+                        }
+                    }
+                product = product.getNext();
+                }
+                if(!existencia_producto){
+                    
+                    //PEDIDO
+                    
+                    for (int i = 0; i < grafo.getNumVerts(); i++) {
+                         Nodo<Producto> producto2 = grafo.getVerts()[i].getProductos().getHead();
+                        for (int j = 0; j < grafo.getVerts()[i].getProductos().getSize(); j++) {
+                            if (producto2.getData().getNombre().equalsIgnoreCase(producto) && cantidad1 < producto2.getData().getCantidad()) {
+                                producto2.getData().setCantidad(producto2.getData().getCantidad() - cantidad1 );
+                                Dijkstra dijkstra = new Dijkstra(grafo, grafo.getVerts()[i].getNumVertice());
+                                dijkstra.caminoMinimos();
+                                camino.setText(dijkstra.getCamino(grafo.searchVertice(valmacen)));
+                            }
+                            producto2 = producto2.getNext();
+                        } 
+                    }
+                    
+                    
+                }
+                Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());
+                this.panelStock.setText(bfs.printProductos());
+                this.vproducto.setText("");
+                this.numAlmacen.setText("");
+                this.vcantidad.setValue(0);
+            }else{
+                JOptionPane.showMessageDialog(null, "El almacen que ingresaste no existe");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Asegurate de rellenar todas las casillas");
+        }
+        
     }//GEN-LAST:event_enviatActionPerformed
 
     /**
@@ -199,7 +268,7 @@ public class Pedido extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner cantidad;
+    private javax.swing.JTextArea camino;
     private javax.swing.JButton enviat;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -208,9 +277,11 @@ public class Pedido extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton menu;
     private javax.swing.JTextField numAlmacen;
-    private javax.swing.JTextArea panel;
-    private javax.swing.JTextField producto;
+    private javax.swing.JTextArea panelStock;
+    private javax.swing.JSpinner vcantidad;
+    private javax.swing.JTextField vproducto;
     // End of variables declaration//GEN-END:variables
 }

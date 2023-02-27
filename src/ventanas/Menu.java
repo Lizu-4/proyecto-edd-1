@@ -49,7 +49,7 @@ public class Menu extends javax.swing.JFrame {
         guardarCambios = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
@@ -156,6 +156,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void realizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarPedidoActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        Pedido pedido = new Pedido();
     }//GEN-LAST:event_realizarPedidoActionPerformed
 
     private void verStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verStockActionPerformed
