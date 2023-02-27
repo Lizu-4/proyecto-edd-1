@@ -170,6 +170,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_gestionarStockActionPerformed
 
     private void nuevoAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoAlmacenActionPerformed
+
+
+
         // TODO add your handling code here:
         String nombre = JOptionPane.showInputDialog("Ingresa el nombre del nuevo almacen");
         //si el almacen no existe entonces continua
@@ -209,6 +212,18 @@ public class Menu extends javax.swing.JFrame {
 
     private void nuevaAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaAristaActionPerformed
         // TODO add your handling code here:
+        String almacen1 = JOptionPane.showInputDialog("Ingresa el nombre del primer almacen");
+        String almacen2 = JOptionPane.showInputDialog("Ingresa el nombre del segundo almacen");
+        if(matriz.searchVertice(almacen1.toUpperCase()) != -1 && matriz.searchVertice(almacen2.toUpperCase()) != -1){
+            try{
+                int km = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de kilometros entre los almacenes"));
+                matriz.newArista(almacen2.toUpperCase(), almacen1.toUpperCase(), km);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Error, solo puedes ingresar numeros");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Uno de los almacenes no existe");
+        }
     }//GEN-LAST:event_nuevaAristaActionPerformed
 
     private void verGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verGrafoActionPerformed
