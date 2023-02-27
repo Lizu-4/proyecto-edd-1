@@ -48,7 +48,7 @@ public class Lista<T> {
     public boolean isEmpty(){
         return head == null;
     }
-    
+    //inserta al final de la lista
     public Nodo insertFinal(Object data){
         Nodo node = new Nodo(data);
         if(isEmpty()){
@@ -64,7 +64,7 @@ public class Lista<T> {
         return node;
     }
    
-
+    //imprime los productos de la lista productos de cada vertice
     public String printProductos() {
         String txt = "";
         Nodo<Vertice> vertice = head;

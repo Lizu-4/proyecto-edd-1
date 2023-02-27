@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author Liz
  */
 public class Lector {
-    
+    //abre un archivo usando JFilechooser y retorna un txt
     public String openTxt() {
         String aux = "";
         String txt = "";
@@ -35,8 +35,9 @@ public class Lector {
             JOptionPane.showMessageDialog(null, "Error al abrir el archivo");
         }
         return txt;
+        
     }
-    
+    //le pasas la ruta del archivo y retorna un txt con sus datos
     public String readTxt(String path) {
         String line;
         String txt = "";
@@ -58,7 +59,7 @@ public class Lector {
             return txt;
         }
     }    
-        
+   //sirve para cargar el grafo luego de recibir un txt     
     public Grafo loadGrafo(String txt){
         Grafo grafo = new Grafo();
         try{
@@ -96,7 +97,7 @@ public class Lector {
             return null;
         }
     }
-
+    //actualiza los datos en el archivo almacen.txt
     public void writeTxt(Grafo grafo) {
         Lista visitados = grafo.BFS(grafo, grafo.getVerts()[0].getName());
         String base_datos = "";

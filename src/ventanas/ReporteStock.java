@@ -116,7 +116,7 @@ public class ReporteStock extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //mostrar el stock con bfs y con dfs
     private void archivoDefecto5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto5ActionPerformed
         // TODO add your handling code here:
         Lista bfs = grafo.BFS(grafo, grafo.getVerts()[0].getName());

@@ -31,7 +31,7 @@ public class Grafo {
         }
         this.numVerts = 0;
     }
-
+    //sirve para buscar un vertice(debes enviarle el nombre).retorna -1 si no lo encuentra
     public int searchVertice(String nombre){
         Vertice vertice = new Vertice(nombre);
         boolean encontrado = false;
@@ -45,7 +45,7 @@ public class Grafo {
         }
         return (i < getNumVerts()) ? i : -1;
     }
-
+    //sirve para crear un vertice
     public void newVertice(String nombre, Lista productos) {
         boolean esta = searchVertice(nombre) >= 0;
         if (!esta) {
@@ -58,7 +58,7 @@ public class Grafo {
         }
     }
 
-
+    //sirve para crear una arista
     public void newArista(String a, String b, int peso) {
         int va,vb;
         va  = searchVertice(a);
@@ -96,7 +96,7 @@ public class Grafo {
     }
     return matPeso;
 }
-    
+    //imprime el grafo
     public void printMatriz() {
         for (int[] fila : getMatAd()) {
             for (int j = 0; j < fila.length; j++) {
@@ -105,7 +105,7 @@ public class Grafo {
             System.out.println("");
         }
     }
-       
+    //recorre el grafo en profundidad y retorna una lista
     public Lista DFS(Grafo grafo, String name) {
         Lista dfs = new Lista();
         int v = grafo.searchVertice(name);
@@ -135,7 +135,7 @@ public class Grafo {
             return dfs;
         }
     }
-  
+  //recorre el grafo en anchura y retorna una lista
     public Lista BFS (Grafo g,String name) {
         int password = 200;
         Lista listafinal = new Lista();

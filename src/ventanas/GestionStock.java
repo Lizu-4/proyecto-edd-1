@@ -149,7 +149,7 @@ public class GestionStock extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //para regresar al menu
     private void menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
@@ -163,7 +163,7 @@ public class GestionStock extends javax.swing.JFrame {
     private void productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_productoActionPerformed
-
+    //para agregar nuevos o productos o modificar los que ya existen
     private void archivoDefecto5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoDefecto5ActionPerformed
         // TODO add your handling code here:
         int cantidad1 = (int) cantidad.getValue();
@@ -176,7 +176,7 @@ public class GestionStock extends javax.swing.JFrame {
                     if(this.producto.getText().equalsIgnoreCase(product.getData().getNombre())){
                         existencia_producto = true;
                        product.getData().setCantidad(cantidad1 + product.getData().getCantidad());
-                       JOptionPane.showMessageDialog(null, "El producto fue modificado con exito");
+                       JOptionPane.showMessageDialog(null, "El producto fue modificado con exito!");
                     }
                 product = product.getNext();
                 }

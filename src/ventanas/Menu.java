@@ -168,11 +168,9 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(false);
         GestionStock stock = new GestionStock();
     }//GEN-LAST:event_gestionarStockActionPerformed
-
+    //para agregar nuevo almacen
     private void nuevoAlmacenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoAlmacenActionPerformed
-
-
-
+        
         // TODO add your handling code here:
         String nombre = JOptionPane.showInputDialog("Ingresa el nombre del nuevo almacen");
         //si el almacen no existe entonces continua
@@ -191,7 +189,6 @@ public class Menu extends javax.swing.JFrame {
                     for (int i = 0; i < aristas; i++) {
                         do{
                             arista1 = JOptionPane.showInputDialog("Ingresa el nombre del almacen correspondiente al camino numero: " + (i+1));
-                            System.out.println(matriz.searchVertice(arista1));
                         }while(matriz.searchVertice(arista1) == -1);
                         km = Integer.parseInt(JOptionPane.showInputDialog("Ingresa la cantidad de kilometros(solo numeros) entre los almacenes "+ nombre + " y " + arista1));
                         matriz.newArista(arista1, nombre, km);
@@ -209,7 +206,7 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_nuevoAlmacenActionPerformed
-
+    //para agregar nueva arista
     private void nuevaAristaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaAristaActionPerformed
         // TODO add your handling code here:
         String almacen1 = JOptionPane.showInputDialog("Ingresa el nombre del primer almacen");
@@ -225,7 +222,7 @@ public class Menu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Uno de los almacenes no existe");
         }
     }//GEN-LAST:event_nuevaAristaActionPerformed
-
+    //graficar el grafo en pantalla
     private void verGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verGrafoActionPerformed
         // TODO add your handling code here:
         GraphStream graph = new GraphStream();
